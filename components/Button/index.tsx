@@ -22,19 +22,21 @@ interface ButtonProps extends TouchableOpacityProps {
   rightIcon?: React.ReactNode;
   containerStyle?: ViewStyle;
   textStyle?: TextStyle;
+  onPress: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   title,
   variant = 'primary',
   loading = false,
   disabled = false,
   leftIcon,
   rightIcon,
+  onPress,
   containerStyle,
   textStyle,
   ...rest
-}) => {
+} : ButtonProps) => {
   const buttonVariantStyle = styles[variant];
   const buttonTextStyle = textStyles[variant];
   
@@ -42,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
+        onPress={onPress}
       style={[
         styles.button,
         buttonVariantStyle,
@@ -60,9 +63,9 @@ const Button: React.FC<ButtonProps> = ({
       ) : (
         <>
           {leftIcon && <>{leftIcon}</>}
-          <Text 
+          <Text
             style={[
-              styles.buttonText, 
+              styles.buttonText,
               buttonTextStyle,
               isDisabled && styles.disabledText,
               leftIcon && { marginLeft: spacing.sm },

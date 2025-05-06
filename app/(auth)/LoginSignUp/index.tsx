@@ -3,11 +3,15 @@ import React, {useState} from 'react'
 import Colors from "@/constants/Colors";
 import Input from '@/components/Input';
 import {spacing} from "@/constants/Theme"
+import Button from '@/components/Button';
+import { useRouter } from 'expo-router';
 
 const LoginSignUp = () => {
 
-    const [userCheck, setUserCheck] = useState(true );
+    const [userCheck, setUserCheck] = useState(true);
     const [alreadySignedUp, setAlreadySignedUp] = useState(true);
+
+    const router = useRouter();
 
     return (
         <View style={styles.container}>
@@ -19,14 +23,17 @@ const LoginSignUp = () => {
                 {userCheck ? (
                     alreadySignedUp ? (
                         <View style = {styles.inputCntnr}>
-                            <Input label = "Password:" placeholder= " Enter password" />
+                            <Input label = "Password:" placeholder= "Enter password" />
                         </View>
                     ) : (
-                        <View style={styles.inputCntnr}>
-                            <Text>Not Signed Up</Text>
+                        <View style = {styles.inputCntnr}>
+                            <Input label = "Password:" placeholder= "Create a password" />
                         </View>
                     )
                 ) : null}
+                <View>
+                    <Button title = { userCheck && alreadySignedUp ? "Login" : "SignUp" } disabled={!userCheck}  onPress = {() => router.replace('/(tabs)') } />
+                </View>
             </ScrollView>
         </View>
     )

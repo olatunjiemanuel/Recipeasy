@@ -12,7 +12,7 @@ export default function Login() {
   const { width } = useWindowDimensions();
   
   const handleLogin = useCallback(() => {
-    router.push('./LoginSignUp');
+    router.push('/LoginSignUp');
     // router.replace('/(tabs)');
   }, [router]);
 
