@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { View, Text, StyleSheet, Image, useWindowDimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
-import Button from '../../components/Button/index';
+import Button from '../../components/Button';
 import Colors from '../../constants/Colors';
 import { spacing } from '../../constants/Theme';
 import { ChevronRight } from 'lucide-react-native';
@@ -12,7 +12,8 @@ export default function Login() {
   const { width } = useWindowDimensions();
   
   const handleLogin = useCallback(() => {
-    router.replace('/(tabs)');
+    router.push('./LoginSignUp');
+    // router.replace('/(tabs)');
   }, [router]);
 
   return (

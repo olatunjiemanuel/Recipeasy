@@ -45,7 +45,7 @@ export default function Home() {
       >
         <View style={styles.header}>
           <Text style={styles.title}>Culinary Connect</Text>
-          <Text style={styles.subtitle}>Discover delicious recipes</Text>
+          <Text style={styles.subtitle}>Discover delicious and tasty recipes</Text>
         </View>
         
         <View style={styles.section}>
