@@ -7,6 +7,7 @@ import Button from '../../components/Button';
 import Colors from '../../constants/Colors';
 import { spacing } from '../../constants/Theme';
 import { Camera, Clock, Users, ChartGantt as GanttChart } from 'lucide-react-native';
+import AddIngredientsComponent from "@/components/AddIngredientsComponent";
 
 export default function CreateRecipe() {
   return (
@@ -112,6 +113,8 @@ export default function CreateRecipe() {
             containerStyle={styles.addButton}
           />
         </Animated.View>
+
+      <AddIngredientsComponent/>
         
         <Animated.View 
           style={styles.section}

@@ -10,6 +10,7 @@ interface InputProps extends TextInputProps {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   placeholder: string;
+  onChangeText: (e:string) => void;
 }
 
 const Input = ({
@@ -19,6 +20,7 @@ const Input = ({
   leftIcon,
     placeholder,
   rightIcon,
+  onChangeText,
   ...rest
 }: InputProps ) => {
   return (
@@ -31,6 +33,7 @@ const Input = ({
       ]}>
         {leftIcon && <View style={styles.leftIcon}>{leftIcon}</View>}
         <TextInput
+            multiline={true}
           style={[
             styles.input,
             leftIcon ? { paddingLeft: 0 } : null,
@@ -39,6 +42,7 @@ const Input = ({
           placeholder={placeholder}
           placeholderTextColor={Colors.text.tertiary}
           {...rest}
+            onChangeText={onChangeText}
         />
         {rightIcon && <View style={styles.rightIcon}>{rightIcon}</View>}
       </View>
@@ -68,7 +72,6 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    height: 48,
     fontSize: 16,
     fontFamily: 'Poppins-Regular',
     color: Colors.text.primary,
